@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { Navigate, BrowserRouter } from "react-router-dom";
+import "./App.css";
+import DogRoutes from "./DogRoutes";
+import Nav from "./Nav";
+import myData from "./data/db.json";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <BrowserRouter>
+        <Nav dogs={myData.dogs}/>
+        <DogRoutes dogs={myData.dogs}/>
+      </BrowserRouter>
     </div>
   );
 }
